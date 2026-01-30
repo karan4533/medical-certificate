@@ -119,14 +119,12 @@ export default function SickLeaveCertificateGenerator() {
     setTimeout(() => printWindow.print(), 250);
   };
 
-  // Simple Medical Cross Logo
+  // Simple Medical Plus Logo
   const MedicalLogo = () => (
-    <svg width="45" height="45" viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
-      {/* Medical Cross */}
-      <rect x="40" y="10" width="20" height="80" rx="2" fill="white"/>
-      <rect x="10" y="40" width="80" height="20" rx="2" fill="white"/>
-      {/* Optional circle background */}
-      <circle cx="50" cy="50" r="45" fill="none" stroke="white" strokeWidth="3"/>
+    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="35" cy="35" r="30" stroke="white" strokeWidth="3" fill="none"/>
+      <rect x="26" y="10" width="18" height="50" fill="white" rx="2"/>
+      <rect x="10" y="26" width="50" height="18" fill="white" rx="2"/>
     </svg>
   );
 
@@ -268,8 +266,11 @@ export default function SickLeaveCertificateGenerator() {
             justifyContent: 'space-between', alignItems: 'center',
             borderBottom: '3px solid #d4af37'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
               <MedicalLogo />
+              <div style={{ fontSize: '9px', fontWeight: 'bold', letterSpacing: '1.5px', textAlign: 'center', opacity: 0.9 }}>
+                {formData.headerTagline}
+              </div>
             </div>
             
             <div style={{ textAlign: 'right', lineHeight: '1.4' }}>
