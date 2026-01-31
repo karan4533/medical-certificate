@@ -336,18 +336,10 @@ export default function SickLeaveCertificateGenerator() {
 
           {/* Signature Section */}
           <div style={{
-            display: 'flex', justifyContent: 'space-between',
+            display: 'flex', justifyContent: 'flex-end',
             padding: '10px 40px 25px 40px', background: '#f5f1e8',
             flexShrink: 0
           }}>
-            <div style={{ fontSize: '14px' }}>
-              <div style={{ marginBottom: '6px', fontWeight: 'bold' }}>
-                {formData.patientSignatureLabel}
-              </div>
-              <div style={{ marginTop: '30px', fontWeight: 'bold' }}>{formData.patientName.split(' ').slice(1).join(' ')}</div>
-              <div style={{ fontSize: '13px', marginTop: '2px', color: '#555' }}>{formData.patientNameLabel}</div>
-            </div>
-            
             <div style={{ textAlign: 'right' }}>
               <div style={{ fontSize: '14px', marginTop: '38px', fontWeight: 'bold' }}>{formData.doctorName}</div>
               <div style={{ fontSize: '13px', marginTop: '2px', color: '#555' }}>{formData.doctorNameLabel}</div>
