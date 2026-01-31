@@ -273,12 +273,12 @@ export default function SickLeaveCertificateGenerator() {
             </div>
             
             <div style={{ textAlign: 'right', lineHeight: '1.4' }}>
-              <div style={{ fontSize: '20px', fontWeight: 'bold', letterSpacing: '0.5px' }}>
+              <div style={{ fontSize: '23px', fontWeight: 'bold', letterSpacing: '0.5px' }}>
                 {formData.doctorName.toUpperCase()}
               </div>
-              <div style={{ fontSize: '10px', marginTop: '4px' }}>{formData.doctorQualification}</div>
-              <div style={{ fontSize: '10px' }}>{formData.doctorRegNo}</div>
-              <div style={{ fontSize: '9px', marginTop: '5px' }}>
+              <div style={{ fontSize: '13px', marginTop: '4px' }}>{formData.doctorQualification}</div>
+              <div style={{ fontSize: '13px' }}>{formData.doctorRegNo}</div>
+              <div style={{ fontSize: '12px', marginTop: '5px' }}>
                 {formData.doctorEmail} | {formData.doctorPhone}
               </div>
             </div>
@@ -289,7 +289,7 @@ export default function SickLeaveCertificateGenerator() {
             background: '#f5f1e8', borderTop: '1.5px solid #1e3a5f',
             borderBottom: '1.5px solid #1e3a5f', padding: '10px 40px', textAlign: 'center'
           }}>
-            <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#1e3a5f', letterSpacing: '4px' }}>
+            <div style={{ fontSize: '17px', fontWeight: 'bold', color: '#1e3a5f', letterSpacing: '4px' }}>
               {formData.certificateTitle}
             </div>
           </div>
@@ -297,14 +297,14 @@ export default function SickLeaveCertificateGenerator() {
           {/* Meta Info */}
           <div style={{
             display: 'flex', justifyContent: 'space-between', padding: '15px 40px',
-            fontSize: '11px', background: '#f5f1e8', borderBottom: '0.5px solid #d0d0d0'
+            fontSize: '14px', background: '#f5f1e8', borderBottom: '0.5px solid #d0d0d0'
           }}>
             <div><strong>{formData.issueDateLabel}</strong> {formatDate(formData.issueDate)}</div>
             <div><strong>{formData.documentNoLabel}</strong> {formData.documentNo}</div>
           </div>
 
           {/* Content */}
-          <div style={{ padding: '25px 40px 20px 40px', lineHeight: '1.9', fontSize: '12px', background: '#f5f1e8', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ padding: '25px 40px 20px 40px', lineHeight: '1.9', fontSize: '15px', background: '#f5f1e8', display: 'flex', flexDirection: 'column' }}>
             <div style={{ marginBottom: '20px' }}>
               <div style={{ marginBottom: '4px' }}><strong>{formData.toLabel}</strong></div>
               <div>{formData.universityName}</div>
@@ -340,23 +340,23 @@ export default function SickLeaveCertificateGenerator() {
             padding: '10px 40px 25px 40px', background: '#f5f1e8',
             flexShrink: 0
           }}>
-            <div style={{ fontSize: '11px' }}>
+            <div style={{ fontSize: '14px' }}>
               <div style={{ marginBottom: '6px', fontWeight: 'bold' }}>
                 {formData.patientSignatureLabel}
               </div>
               <div style={{ marginTop: '30px', fontWeight: 'bold' }}>{formData.patientName.split(' ').slice(1).join(' ')}</div>
-              <div style={{ fontSize: '10px', marginTop: '2px', color: '#555' }}>{formData.patientNameLabel}</div>
+              <div style={{ fontSize: '13px', marginTop: '2px', color: '#555' }}>{formData.patientNameLabel}</div>
             </div>
             
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: '11px', marginTop: '38px', fontWeight: 'bold' }}>{formData.doctorName}</div>
-              <div style={{ fontSize: '10px', marginTop: '2px', color: '#555' }}>{formData.doctorNameLabel}</div>
+              <div style={{ fontSize: '14px', marginTop: '38px', fontWeight: 'bold' }}>{formData.doctorName}</div>
+              <div style={{ fontSize: '13px', marginTop: '2px', color: '#555' }}>{formData.doctorNameLabel}</div>
             </div>
           </div>
 
           {/* Footer */}
           <div style={{
-            background: '#1e3a5f', padding: '15px 40px', fontSize: '7.5px',
+            background: '#1e3a5f', padding: '15px 40px', fontSize: '10px',
             lineHeight: '1.5', color: '#e0e0e0', textAlign: 'justify', borderTop: '3px solid #1e3a5f',
             flexShrink: 0
           }}>
