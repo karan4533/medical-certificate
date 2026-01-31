@@ -337,7 +337,7 @@ export default function SickLeaveCertificateGenerator() {
           {/* Signature Section */}
           <div style={{
             display: 'flex', justifyContent: 'space-between',
-            padding: '25px 40px 25px 40px', background: '#f5f1e8',
+            padding: '10px 40px 25px 40px', background: '#f5f1e8',
             flexShrink: 0
           }}>
             <div style={{ fontSize: '11px' }}>
