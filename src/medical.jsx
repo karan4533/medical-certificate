@@ -131,13 +131,47 @@ export default function SickLeaveCertificateGenerator() {
   );
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #f0f4f8, #e2e8f0)', padding: '20px' }}>
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #f0f4f8, #e2e8f0)', padding: '10px' }}>
+      <style>{`
+        @media (min-width: 768px) {
+          .form-container { padding: 30px !important; }
+          .form-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .main-title { font-size: 28px !important; }
+          .certificate-wrapper { transform-origin: top center; }
+        }
+        @media (max-width: 767px) {
+          .form-container { padding: 15px !important; }
+          .form-grid { grid-template-columns: 1fr !important; }
+          .main-title { font-size: 22px !important; }
+          .subtitle { font-size: 14px !important; }
+          .certificate-wrapper { 
+            transform: scale(0.4);
+            transform-origin: top center;
+            width: 210mm;
+            margin: -400px auto -350px auto;
+          }
+          .advanced-grid { grid-template-columns: 1fr !important; }
+          input, select, textarea { font-size: 16px !important; }
+        }
+        @media (max-width: 480px) {
+          .certificate-wrapper { 
+            transform: scale(0.35);
+            margin: -430px auto -400px auto;
+          }
+        }
+        @media (max-width: 380px) {
+          .certificate-wrapper { 
+            transform: scale(0.32);
+            margin: -450px auto -420px auto;
+          }
+        }
+      `}</style>
       {/* Form Section */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', padding: '30px', marginBottom: '30px' }}>
-        <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '10px', color: '#1e3a5f' }}>Sick Leave Certificate Generator</h1>
-        <p style={{ color: '#64748b', marginBottom: '30px' }}>Fill in the details below to generate a professional sick leave certificate</p>
+      <div className="form-container" style={{ maxWidth: '1200px', margin: '0 auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', padding: '30px', marginBottom: '30px' }}>
+        <h1 className="main-title" style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '10px', color: '#1e3a5f' }}>Sick Leave Certificate Generator</h1>
+        <p className="subtitle" style={{ color: '#64748b', marginBottom: '30px' }}>Fill in the details below to generate a professional sick leave certificate</p>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+        <div className="form-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
           {[
             { label: 'Issue Date', name: 'issueDate', type: 'date' },
             { label: 'Document No.', name: 'documentNo', type: 'text' },
@@ -172,12 +206,12 @@ export default function SickLeaveCertificateGenerator() {
         </div>
 
         {/* Advanced Settings */}
-        <details style={{ marginTop: '30px', padding: '20px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-          <summary style={{ fontSize: '16px', fontWeight: '600', color: '#1e3a5f', cursor: 'pointer' }}>
+        <details style={{ marginTop: '30px', padding: '15px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+          <summary style={{ fontSize: '16px', fontWeight: '600', color: '#1e3a5f', cursor: 'pointer', padding: '5px' }}>
             ⚙️ Advanced Settings - Edit All Certificate Text
           </summary>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', marginTop: '20px' }}>
+          <div className="advanced-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', marginTop: '20px' }}>
             {[
               { label: 'Header Tagline', name: 'headerTagline' },
               { label: 'Certificate Title', name: 'certificateTitle' },
@@ -229,12 +263,14 @@ export default function SickLeaveCertificateGenerator() {
         
         <button onClick={printCertificate}
           style={{
-            marginTop: '30px', width: '100%', padding: '12px',
+            marginTop: '30px', width: '100%', padding: '14px',
             background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
             color: 'white', border: 'none', borderRadius: '8px',
             fontSize: '16px', fontWeight: '600', cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
-            transition: 'transform 0.2s'
+            transition: 'transform 0.2s',
+            touchAction: 'manipulation',
+            WebkitTapHighlightColor: 'transparent'
           }}
           onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
           onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -245,7 +281,7 @@ export default function SickLeaveCertificateGenerator() {
       </div>
 
       {/* Certificate Preview */}
-      <div style={{ maxWidth: '210mm', margin: '0 auto' }}>
+      <div className="certificate-wrapper" style={{ maxWidth: '210mm', margin: '0 auto', overflow: 'hidden' }}>
         <div id="certificate" style={{ 
           width: '210mm', 
           height: '297mm', 
