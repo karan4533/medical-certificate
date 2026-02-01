@@ -135,13 +135,17 @@ export default function SickLeaveCertificateGenerator() {
       <style>{`
         @media (min-width: 768px) {
           .form-container { padding: 30px !important; }
-          .form-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .form-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
           .main-title { font-size: 28px !important; }
           .certificate-wrapper { transform-origin: top center; }
+          .advanced-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
         }
         @media (max-width: 767px) {
           .form-container { padding: 15px !important; }
-          .form-grid { grid-template-columns: 1fr !important; }
+          .form-grid { 
+            grid-template-columns: 1fr !important; 
+            gap: 18px !important;
+          }
           .main-title { font-size: 22px !important; }
           .subtitle { font-size: 14px !important; }
           .certificate-wrapper { 
@@ -150,14 +154,24 @@ export default function SickLeaveCertificateGenerator() {
             width: 210mm;
             margin: -400px auto -350px auto;
           }
-          .advanced-grid { grid-template-columns: 1fr !important; }
-          input, select, textarea { font-size: 16px !important; }
+          .advanced-grid { 
+            grid-template-columns: 1fr !important; 
+            gap: 18px !important;
+          }
+          .form-field { margin-bottom: 0 !important; }
+          .form-label { margin-bottom: 6px !important; }
+          input, select, textarea { 
+            font-size: 16px !important; 
+            padding: 10px 12px !important;
+          }
         }
         @media (max-width: 480px) {
           .certificate-wrapper { 
             transform: scale(0.35);
             margin: -430px auto -400px auto;
           }
+          .form-grid { gap: 16px !important; }
+          .advanced-grid { gap: 16px !important; }
         }
         @media (max-width: 380px) {
           .certificate-wrapper { 
@@ -190,8 +204,8 @@ export default function SickLeaveCertificateGenerator() {
             { label: 'Doctor Email', name: 'doctorEmail', type: 'email' },
             { label: 'Doctor Phone', name: 'doctorPhone', type: 'tel' }
           ].map(field => (
-            <div key={field.name} style={field.span === 2 ? { gridColumn: 'span 2' } : {}}>
-              <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '5px', color: '#334155' }}>{field.label}</label>
+            <div key={field.name} className="form-field" style={field.span === 2 ? { gridColumn: 'span 2' } : {}}>
+              <label className="form-label" style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '5px', color: '#334155' }}>{field.label}</label>
               {field.type === 'select' ? (
                 <select name={field.name} value={formData[field.name]} onChange={handleChange}
                   style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px' }}>
@@ -222,15 +236,15 @@ export default function SickLeaveCertificateGenerator() {
               { label: 'Patient Name Label', name: 'patientNameLabel' },
               { label: 'Doctor Name Label', name: 'doctorNameLabel' }
             ].map(field => (
-              <div key={field.name}>
-                <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '5px', color: '#334155' }}>{field.label}</label>
+              <div key={field.name} className="form-field">
+                <label className="form-label" style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '5px', color: '#334155' }}>{field.label}</label>
                 <input type="text" name={field.name} value={formData[field.name]} onChange={handleChange}
                   style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px' }}/>
               </div>
             ))}
             
-            <div style={{ gridColumn: 'span 2' }}>
-              <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '5px', color: '#334155' }}>Footer Disclaimer Text</label>
+            <div className="form-field" style={{ gridColumn: 'span 2' }}>
+              <label className="form-label" style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '5px', color: '#334155' }}>Footer Disclaimer Text</label>
               <textarea name="footerText" value={formData.footerText} onChange={handleChange} rows="4"
                 style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '14px', resize: 'vertical' }}/>
             </div>
@@ -252,8 +266,8 @@ export default function SickLeaveCertificateGenerator() {
               { label: 'Between rest days and date', name: 'mainText10' },
               { label: 'End of bed rest sentence', name: 'mainText11' }
             ].map(field => (
-              <div key={field.name} style={field.span === 2 ? { gridColumn: 'span 2' } : {}}>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: '500', marginBottom: '5px', color: '#475569' }}>{field.label}</label>
+              <div key={field.name} className="form-field" style={field.span === 2 ? { gridColumn: 'span 2' } : {}}>
+                <label className="form-label" style={{ display: 'block', fontSize: '13px', fontWeight: '500', marginBottom: '5px', color: '#475569' }}>{field.label}</label>
                 <input type="text" name={field.name} value={formData[field.name]} onChange={handleChange} placeholder={field.placeholder || ''}
                   style={{ width: '100%', padding: '6px 10px', border: '1px solid #cbd5e1', borderRadius: '4px', fontSize: '13px' }}/>
               </div>
